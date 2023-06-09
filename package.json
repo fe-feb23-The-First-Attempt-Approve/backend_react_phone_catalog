@@ -4,7 +4,7 @@
   "private": true,
   "main": "src/server.ts",
   "scripts": {
-    "start": "node src/app.ts",
+    "start": "npx ts-node src/server.ts",
     "sync": "npx ts-node src/sync.ts",
     "build": "npm i && tsc -p .",
     "prettier": "npx prettier --write . --ignore-path .gitignore",
