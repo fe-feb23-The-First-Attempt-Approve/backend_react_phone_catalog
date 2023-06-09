@@ -18,7 +18,7 @@ const Phone_1 = require("./models/Phone");
 const PORT = process.env.PORT || 3000;
 const server = (0, express_1.default)();
 server.use((0, cors_1.default)());
-server.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+server.get('/phones', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const phones = yield Phone_1.Phone.findAll();
     res.send(phones);
 }));

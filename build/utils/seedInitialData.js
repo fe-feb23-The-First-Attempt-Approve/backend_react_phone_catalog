@@ -9,12 +9,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const Phone_1 = require("./models/Phone");
-const dbinit_1 = require("./utils/dbinit");
-const seedInitialData_1 = require("./utils/seedInitialData");
-const sync = () => __awaiter(void 0, void 0, void 0, function* () {
-    (0, dbinit_1.dbinit)();
-    yield Phone_1.Phone.sync();
-    yield (0, seedInitialData_1.seedInitialData)();
+exports.seedInitialData = void 0;
+const readData_1 = require("./readData");
+const Phone_1 = require("../models/Phone");
+const seedInitialData = () => __awaiter(void 0, void 0, void 0, function* () {
+    yield Phone_1.Phone.bulkCreate((0, readData_1.readData)());
 });
-sync();
+exports.seedInitialData = seedInitialData;

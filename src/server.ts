@@ -8,7 +8,7 @@ const server = express();
 
 server.use(cors());
 
-server.get('/', async(req, res) => {
+server.get('/phones', async(req, res) => {
   const phones = await Phone.findAll();
 
   res.send(phones);
