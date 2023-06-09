@@ -12,17 +12,21 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = __importDefault(require("express"));
-const cors_1 = __importDefault(require("cors"));
+const fs_1 = __importDefault(require("fs"));
+const path_1 = __importDefault(require("path"));
 const Phone_1 = require("./models/Phone");
-const PORT = process.env.PORT || 3000;
-const server = (0, express_1.default)();
-server.use((0, cors_1.default)());
-server.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const phones = yield Phone_1.Phone.findAll();
-    res.send(phones);
-}));
-server.listen(PORT, () => {
-    // eslint-disable-next-line no-console
-    console.log(`Server is Running on http://localhost:${PORT}`);
+const dbinit_1 = require("./utils/dbinit");
+const filePath = path_1.default.resolve('api', 'phones.json');
+function read() {
+    const data = fs_1.default.readFileSync(filePath, 'utf8');
+    return JSON.parse(data);
+}
+const seedInitialData = () => __awaiter(void 0, void 0, void 0, function* () {
+    yield Phone_1.Phone.bulkCreate(read());
 });
+const sync = () => __awaiter(void 0, void 0, void 0, function* () {
+    (0, dbinit_1.dbinit)();
+    yield Phone_1.Phone.sync({ alter: true });
+    yield seedInitialData();
+});
+sync();

@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import { Phone } from './models/Phone';
 
 const PORT = process.env.PORT || 3000;
 
@@ -7,8 +8,10 @@ const server = express();
 
 server.use(cors());
 
-server.get('/', (req, res) => {
-  res.send('Нарешті!!!!!!!!!!!!!!!!!!!!');
+server.get('/', async(req, res) => {
+  const phones = await Phone.findAll();
+
+  res.send(phones);
 });
 
 server.listen(PORT, () => {

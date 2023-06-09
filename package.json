@@ -5,6 +5,7 @@
   "main": "src/server.ts",
   "scripts": {
     "start": "node src/app.ts",
+    "sync": "npx ts-node src/sync.ts",
     "build": "npm i && tsc -p .",
     "prettier": "npx prettier --write . --ignore-path .gitignore",
     "lint": "eslint . --ignore-path .gitignore",
@@ -24,6 +25,7 @@
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "morgan": "~1.9.1",
+    "pg": "^8.11.0",
     "reflect-metadata": "^0.1.13",
     "sequelize": "^6.32.0",
     "sequelize-typescript": "^2.1.5"
