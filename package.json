@@ -9,7 +9,7 @@
     "build": "npm i && tsc -p .",
     "prettier": "npx prettier --write . --ignore-path .gitignore",
     "lint": "eslint . --ignore-path .gitignore",
-    "fix-style": "npm run prettier && npm run lint -- --fix",
+    "fix-style": "npm run lint",
     "prepare": "husky install"
   },
   "lint-staged": {
