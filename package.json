@@ -27,6 +27,7 @@
     "morgan": "~1.9.1",
     "pg": "^8.11.0",
     "reflect-metadata": "^0.1.13",
+    "sample-env": "^1.0.3",
     "sequelize": "^6.32.0",
     "sequelize-typescript": "^2.1.5"
   },
