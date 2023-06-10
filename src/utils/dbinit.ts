@@ -3,11 +3,13 @@ import { models } from '../models';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 require('dotenv').config();
 
-// eslint-disable-next-line max-len
-const URI = 'postgresql://PashaMalyshkin:uZTy9nvE3YjH@ep-throbbing-sunset-123571.eu-central-1.aws.neon.tech/neondb';
+const database = process.env.DATABASE;
+const username = process.env.USER;
+const password = process.env.PASSWORD;
+const host = process.env.HOST;
 
 export const dbinit = () =>
-  new Sequelize(URI, {
+  new Sequelize(`${database}://${username}:${password}.${host}`, {
     models,
     dialectOptions: {
       ssl: true,
