@@ -1,9 +1,12 @@
 import fs from 'fs';
 import path from 'path';
 
-const filePath = path.resolve('api', 'phones.json');
+export function readData(folderName: string, fileName: string) {
+  const filePath = path.resolve(folderName, fileName);
 
-export function readData() {
+  // eslint-disable-next-line no-console
+  console.log(filePath);
+
   const data = fs.readFileSync(filePath, 'utf8');
 
   return JSON.parse(data);
