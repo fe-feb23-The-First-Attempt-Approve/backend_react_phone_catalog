@@ -1,7 +1,9 @@
 import express from 'express';
 import cors from 'cors';
-import { Phone } from './models/Phone';
 import { dbinit } from './utils/dbinit';
+import { router as phonesRouter } from './routes/phones';
+import { router as tabletsRouter } from './routes/tablets';
+import { router as accessoriesRouter } from './routes/accessories';
 
 const PORT = 3000;
 
@@ -10,12 +12,10 @@ const server = express();
 dbinit();
 
 server.use(cors());
-
-server.get('/phones', async(req, res) => {
-  const phones = await Phone.findAll();
-
-  res.send(phones);
-});
+server.use(express.json());
+server.use('/phones', phonesRouter);
+server.use('/tablets', tabletsRouter);
+server.use('/accessories', accessoriesRouter);
 
 server.listen(PORT, () => {
   // eslint-disable-next-line no-console
