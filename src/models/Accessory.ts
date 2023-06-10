@@ -13,7 +13,7 @@ import {
   createdAt: false,
   updatedAt: false,
 })
-export class Accessorie extends Model {
+export class Accessory extends Model {
   @PrimaryKey
   @AutoIncrement
   @AllowNull(false)

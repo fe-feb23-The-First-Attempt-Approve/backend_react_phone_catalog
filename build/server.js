@@ -16,7 +16,7 @@ const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const Phone_1 = require("./models/Phone");
 const dbinit_1 = require("./utils/dbinit");
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 const server = (0, express_1.default)();
 (0, dbinit_1.dbinit)();
 server.use((0, cors_1.default)());

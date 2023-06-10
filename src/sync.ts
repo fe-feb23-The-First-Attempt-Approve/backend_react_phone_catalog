@@ -1,4 +1,4 @@
-import { Accessorie } from './models/Accessorie';
+import { Accessory } from './models/Accessory';
 import { Phone } from './models/Phone';
 import { ProductDetail } from './models/ProductDetail';
 import { Tablet } from './models/Tablet';
@@ -10,7 +10,7 @@ const sync = async() => {
 
   await Phone.sync();
   await Tablet.sync();
-  await Accessorie.sync();
+  await Accessory.sync();
   await ProductDetail.sync();
 
   await seedInitialData();
