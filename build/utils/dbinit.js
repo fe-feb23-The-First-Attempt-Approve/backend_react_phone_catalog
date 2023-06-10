@@ -5,9 +5,11 @@ const sequelize_typescript_1 = require("sequelize-typescript");
 const models_1 = require("../models");
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 require('dotenv').config();
-// eslint-disable-next-line max-len
-const URI = 'postgresql://PashaMalyshkin:uZTy9nvE3YjH@ep-throbbing-sunset-123571.eu-central-1.aws.neon.tech/neondb';
-const dbinit = () => new sequelize_typescript_1.Sequelize(URI, {
+const database = process.env.DATABASE;
+const username = process.env.USER;
+const password = process.env.PASSWORD;
+const host = process.env.HOST;
+const dbinit = () => new sequelize_typescript_1.Sequelize(`${database}://${username}:${password}.${host}`, {
     models: models_1.models,
     dialectOptions: {
         ssl: true,
