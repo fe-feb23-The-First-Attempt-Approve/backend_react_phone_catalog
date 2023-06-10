@@ -1,10 +1,6 @@
 import express from 'express';
-import { Accessory } from '../models/Accessory';
+import { getAll } from '../controllers/accessories';
 
 export const router = express.Router();
 
-router.get('/', async(req, res) => {
-  const accessories = await Accessory.findAll();
-
-  res.send(accessories);
-});
+router.get('/', getAll);

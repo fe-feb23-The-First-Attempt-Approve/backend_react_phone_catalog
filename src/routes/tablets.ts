@@ -1,10 +1,6 @@
 import express from 'express';
-import { Tablet } from '../models/Tablet';
+import { getAll } from '../controllers/tablets';
 
 export const router = express.Router();
 
-router.get('/', async(req, res) => {
-  const tablets = await Tablet.findAll();
-
-  res.send(tablets);
-});
+router.get('/', getAll);
