@@ -9,13 +9,21 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getOne = exports.getAll = void 0;
+exports.getOne = exports.getRange = exports.getAll = void 0;
 const phones_1 = require("../services/phones");
+const SortType_1 = require("../types.ts/SortType");
 const getAll = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const phones = yield (0, phones_1.findAll)();
     res.send(phones);
 });
 exports.getAll = getAll;
+const getRange = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const [min, max] = yield (0, phones_1.getMinMaxPrices)();
+    const { page = 1, perPage = 8, sort = SortType_1.SortType.New, maxPrice = max, minPrice = min, } = req.query;
+    const phonesPageInfo = yield (0, phones_1.findRange)(Number(page), Number(perPage), sort, Number(maxPrice), Number(minPrice));
+    res.send(phonesPageInfo);
+});
+exports.getRange = getRange;
 const getOne = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { phoneId } = req.params;
     const foundPhone = yield (0, phones_1.findById)(phoneId);
