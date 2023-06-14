@@ -1,0 +1,356 @@
+[
+  {
+    "id":"apple-ipad-air-256gb-blue",
+    "namespaceId":"apple-ipad-air",
+    "name":"Apple iPad Air 256GB MM9M3TU/A",
+    "capacityAvailable":["64GB","256GB"],
+    "capacity":"256GB",
+    "priceRegular":960,
+    "priceDiscount":899,
+    "colorsAvailable":["blue","pink"],
+    "color":"blue",
+    "images":[
+      "img/tablets/apple-ipad-air/blue/00.webp",
+      "img/tablets/apple-ipad-air/blue/01.webp",
+      "img/tablets/apple-ipad-air/blue/02.webp",
+      "img/tablets/apple-ipad-air/blue/03.webp"],
+    "description":[
+      {
+        "title":"And then there was Air",
+        "text":[
+          "A transformative camera system that adds tons of capability without complexity.",
+          "An unprecedented leap in battery life. And a mind-blowing chip that doubles down on machine learning and pushes the boundaries of what a tablet can do. Welcome to the first iPad powerful enough to be called Air."
+        ]
+      },
+      {
+        "title":"Camera",
+        "text":[
+          "Meet the first camera system to combine cutting-edge technology with the legendary simplicity of iPad. Capture up to four times more scene. Get beautiful images in drastically lower light. Shoot the highest-quality video in a tablet — then edit with the same tools you love for photos. You’ve never shot with anything like it."
+          ]
+      },
+      {
+        "title":"Shoot it. Flip it. Zoom it. Crop it. Cut it. Light it. Tweak it. Love it.",
+        "text":[
+          "iPad Air lets you capture videos that are beautifully true to life, with greater detail and smoother motion. Epic processing power means it can shoot 4K video with extended dynamic range and cinematic video stabilization — all at 60 fps. You get more creative control, too, with four times more scene and powerful new editing tools to play with."
+          ]
+      }
+    ],
+    "screen":"10.9' IPS",
+    "resolution":"1640x2360",
+    "processor":"Apple M1 chip",
+    "ram":"8GB",
+    "camera":"12 Mp + 12 Mp + 12MP",
+    "zoom":"Digital, 5x",
+    "cell":["GPRS","EDGE","WCDMA","UMTS","HSPA","LTE"]
+  },
+  {
+    "id":"apple-ipad-pro-128gb-gray",
+    "namespaceId":"apple-ipad-pro",
+    "name":"Apple iPad Pro MNXP3TU/A",
+    "capacityAvailable":["128GB","2TB"],
+    "capacity":"128GB",
+    "priceRegular":1100,
+    "priceDiscount":999,
+    "colorsAvailable":["gray","white"],
+    "color":"gray",
+    "images":[
+      "img/tablets/apple-ipad-pro/gray/00.webp",
+      "img/tablets/apple-ipad-pro/gray/01.webp",
+      "img/tablets/apple-ipad-pro/gray/02.webp",
+      "img/tablets/apple-ipad-pro/gray/03.webp"],
+    "description":[
+      {
+        "title":"And then there was Pro",
+        "text":[
+          "A transformative triple-camera system that adds tons of capability without complexity.",
+          "An unprecedented leap in battery life. And a mind-blowing chip that doubles down on machine learning and pushes the boundaries of what a tablet can do. Welcome to the first iPad powerful enough to be called Pro."
+        ]
+      },
+      {
+        "title":"Camera",
+        "text":[
+          "Meet the first triple-camera system to combine cutting-edge technology with the legendary simplicity of iPad. Capture up to four times more scene. Get beautiful images in drastically lower light. Shoot the highest-quality video in a tablet — then edit with the same tools you love for photos. You’ve never shot with anything like it."
+          ]
+      },
+      {
+        "title":"Shoot it. Flip it. Zoom it. Crop it. Cut it. Light it. Tweak it. Love it.",
+        "text":[
+          "iPad Pro lets you capture videos that are beautifully true to life, with greater detail and smoother motion. Epic processing power means it can shoot 4K video with extended dynamic range and cinematic video stabilization — all at 60 fps. You get more creative control, too, with four times more scene and powerful new editing tools to play with."
+          ]
+      }
+    ],
+    "screen":"11' IPS",
+    "resolution":"2048x2732",
+    "processor":"Apple M2 chip",
+    "ram":"8GB",
+    "camera":"12 Mp + 12 Mp + 12MP",
+    "zoom":"Digital, 10x / Optical, 2x",
+    "cell":["GPRS","EDGE","WCDMA","UMTS","HSPA","LTE"]
+  },
+  {
+    "id":"apple-ipad-air-64gb-pink",
+    "namespaceId":"apple-ipad-air",
+    "name":"Apple iPad Air 64GB MM9M3TU/A",
+    "capacityAvailable":["64GB","256GB"],
+    "capacity":"64GB",
+    "priceRegular":900,
+    "priceDiscount":829,
+    "colorsAvailable":["blue","pink"],
+    "color":"pink",
+    "images":[
+      "img/tablets/apple-ipad-air/pink/00.webp",
+      "img/tablets/apple-ipad-air/pink/01.webp",
+      "img/tablets/apple-ipad-air/pink/02.webp"],
+    "description":[
+      {
+        "title":"And then there was Air",
+        "text":[
+          "A transformative camera system that adds tons of capability without complexity.",
+          "An unprecedented leap in battery life. And a mind-blowing chip that doubles down on machine learning and pushes the boundaries of what a tablet can do. Welcome to the first iPad powerful enough to be called Air."
+        ]
+      },
+      {
+        "title":"Camera",
+        "text":[
+          "Meet the first camera system to combine cutting-edge technology with the legendary simplicity of iPad. Capture up to four times more scene. Get beautiful images in drastically lower light. Shoot the highest-quality video in a tablet — then edit with the same tools you love for photos. You’ve never shot with anything like it."
+          ]
+      },
+      {
+        "title":"Shoot it. Flip it. Zoom it. Crop it. Cut it. Light it. Tweak it. Love it.",
+        "text":[
+          "iPad Air lets you capture videos that are beautifully true to life, with greater detail and smoother motion. Epic processing power means it can shoot 4K video with extended dynamic range and cinematic video stabilization — all at 60 fps. You get more creative control, too, with four times more scene and powerful new editing tools to play with."
+          ]
+      }
+    ],
+    "screen":"10.9' IPS",
+    "resolution":"1640x2360",
+    "processor":"Apple M1 chip",
+    "ram":"8GB",
+    "camera":"12 Mp + 12 Mp + 12MP",
+    "zoom":"Digital, 5x",
+    "cell":["GPRS","EDGE","WCDMA","UMTS","HSPA","LTE"]
+  },
+  {
+    "id":"apple-ipad-mini-256gb-bej",
+    "namespaceId":"apple-ipad-mini",
+    "name":"Apple iPad Mini 256GB TMK7V3TU/A",
+    "capacityAvailable":["64GB","256GB"],
+    "capacity":"256GB",
+    "priceRegular":870,
+    "priceDiscount":799,
+    "colorsAvailable":["bej","gray","violet"],
+    "color":"bej",
+    "images":[
+      "img/tablets/apple-ipad-mini/bej/00.webp",
+      "img/tablets/apple-ipad-mini/bej/01.webp",
+      "img/tablets/apple-ipad-mini/bej/02.webp",
+      "img/tablets/apple-ipad-mini/bej/03.webp",
+      "img/tablets/apple-ipad-mini/bej/04.webp"],
+    "description":[
+      {
+        "title":"And then there was Mini",
+        "text":[
+          "A transformative camera system that adds tons of capability without complexity.",
+          "An unprecedented leap in battery life. And a mind-blowing chip that doubles down on machine learning and pushes the boundaries of what a tablet can do. Welcome to the first iPad powerful enough to be called Mini."
+        ]
+      },
+      {
+        "title":"Camera",
+        "text":[
+          "Meet the first camera system to combine cutting-edge technology with the legendary simplicity of iPad. Capture up to four times more scene. Get beautiful images in drastically lower light. Shoot the highest-quality video in a tablet — then edit with the same tools you love for photos. You’ve never shot with anything like it."
+          ]
+      },
+      {
+        "title":"Shoot it. Flip it. Zoom it. Crop it. Cut it. Light it. Tweak it. Love it.",
+        "text":[
+          "iPad Mini lets you capture videos that are beautifully true to life, with greater detail and smoother motion. Epic processing power means it can shoot 4K video with extended dynamic range and cinematic video stabilization — all at 60 fps. You get more creative control, too, with four times more scene and powerful new editing tools to play with."
+          ]
+      }
+    ],
+    "screen":"8.3' IPS",
+    "resolution":"1488x2266",
+    "processor":" ",
+    "ram":"4GB",
+    "camera":"12 Mp + 12 Mp + 12MP",
+    "zoom":"Digital, 5x",
+    "cell":["GPRS","EDGE","WCDMA","UMTS","HSPA","LTE"]
+  },
+  {
+    "id":"apple-ipad-pro-2tb-white",
+    "namespaceId":"apple-ipad-pro",
+    "name":"Apple iPad Pro 2TB MNY03TU/A",
+    "capacityAvailable":["128GB","2TB"],
+    "capacity":"2TB",
+    "priceRegular":2500,
+    "priceDiscount":2299,
+    "colorsAvailable":["gray","white"],
+    "color":"white",
+    "images":[
+      "img/tablets/apple-ipad-pro/white/00.webp",
+      "img/tablets/apple-ipad-pro/white/01.webp",
+      "img/tablets/apple-ipad-pro/white/02.webp",
+      "img/tablets/apple-ipad-pro/white/03.webp"],
+    "description":[
+      {
+        "title":"And then there was Pro",
+        "text":[
+          "A transformative camera system that adds tons of capability without complexity.",
+          "An unprecedented leap in battery life. And a mind-blowing chip that doubles down on machine learning and pushes the boundaries of what a tablet can do. Welcome to the first iPad powerful enough to be called Pro."
+        ]
+      },
+      {
+        "title":"Camera",
+        "text":[
+          "Meet the first camera system to combine cutting-edge technology with the legendary simplicity of iPad. Capture up to four times more scene. Get beautiful images in drastically lower light. Shoot the highest-quality video in a tablet — then edit with the same tools you love for photos. You’ve never shot with anything like it."
+          ]
+      },
+      {
+        "title":"Shoot it. Flip it. Zoom it. Crop it. Cut it. Light it. Tweak it. Love it.",
+        "text":[
+          "iPad Pro lets you capture videos that are beautifully true to life, with greater detail and smoother motion. Epic processing power means it can shoot 4K video with extended dynamic range and cinematic video stabilization — all at 60 fps. You get more creative control, too, with four times more scene and powerful new editing tools to play with."
+          ]
+      }
+    ],
+    "screen":"12.9' IPS",
+    "resolution":"2048x2732",
+    "processor":"Apple M2 chip",
+    "ram":"16GB",
+    "camera":"12 Mp + 12 Mp + 12MP",
+    "zoom":"Digital, 10x / Optical, 2x",
+    "cell":["GPRS","EDGE","WCDMA","UMTS","HSPA","LTE"]
+  },
+  {
+    "id":"apple-ipad-64gb-white",
+    "namespaceId":"apple-ipad",
+    "name":"Apple iPad 64GB MK493TU/A",
+    "capacityAvailable":["64GB"],
+    "capacity":"64GB",
+    "priceRegular":600,
+    "priceDiscount":529,
+    "colorsAvailable":["white"],
+    "color":"white",
+    "images":[
+      "img/tablets/apple-ipad/white/00.webp",
+      "img/tablets/apple-ipad/white/01.webp",
+      "img/tablets/apple-ipad/white/02.webp",
+      "img/tablets/apple-ipad/white/03.webp"],
+    "description":[
+      {
+        "title":"And then there was iPad",
+        "text":[
+          "A transformative camera system that adds tons of capability without complexity.",
+          "An unprecedented leap in battery life. And a mind-blowing chip that doubles down on machine learning and pushes the boundaries of what a tablet can do. Welcome to the first iPad powerful enough to be called iPad."
+        ]
+      },
+      {
+        "title":"Camera",
+        "text":[
+          "Meet the first camera system to combine cutting-edge technology with the legendary simplicity of iPad. Capture up to four times more scene. Get beautiful images in drastically lower light. Shoot the highest-quality video in a tablet — then edit with the same tools you love for photos. You’ve never shot with anything like it."
+          ]
+      },
+      {
+        "title":"Shoot it. Flip it. Zoom it. Crop it. Cut it. Light it. Tweak it. Love it.",
+        "text":[
+          "iPad lets you capture videos that are beautifully true to life, with greater detail and smoother motion. Epic processing power means it can shoot 4K video with extended dynamic range and cinematic video stabilization — all at 60 fps. You get more creative control, too, with four times more scene and powerful new editing tools to play with."
+          ]
+      }
+    ],
+    "screen":"10.2' IPS",
+    "resolution":"1488x2266",
+    "processor":"A9X chip",
+    "ram":"8GB",
+    "camera":"12 Mp + 12 Mp + 12MP",
+    "zoom":"Digital, 5x",
+    "cell":["GPRS","EDGE","WCDMA","UMTS","HSPA","LTE"]
+  },
+  {
+    "id":"apple-ipad-mini-64gb-gray",
+    "namespaceId":"apple-ipad-mini",
+    "name":"Apple iPad Mini 64GB MK7M3TU/A",
+    "capacityAvailable":["64GB","256GB"],
+    "capacity":"64GB",
+    "priceRegular":680,
+    "priceDiscount":599,
+    "colorsAvailable":["bej","gray","violet"],
+    "color":"gray",
+    "images":[
+      "img/tablets/apple-ipad-mini/gray/00.webp",
+      "img/tablets/apple-ipad-mini/gray/01.webp",
+      "img/tablets/apple-ipad-mini/gray/02.webp",
+      "img/tablets/apple-ipad-mini/gray/03.webp",
+      "img/tablets/apple-ipad-mini/gray/04.webp"],
+    "description":[
+      {
+        "title":"And then there was Mini",
+        "text":[
+          "A transformative camera system that adds tons of capability without complexity.",
+          "An unprecedented leap in battery life. And a mind-blowing chip that doubles down on machine learning and pushes the boundaries of what a tablet can do. Welcome to the first iPad powerful enough to be called Mini."
+        ]
+      },
+      {
+        "title":"Camera",
+        "text":[
+          "Meet the first camera system to combine cutting-edge technology with the legendary simplicity of iPad. Capture up to four times more scene. Get beautiful images in drastically lower light. Shoot the highest-quality video in a tablet — then edit with the same tools you love for photos. You’ve never shot with anything like it."
+          ]
+      },
+      {
+        "title":"Shoot it. Flip it. Zoom it. Crop it. Cut it. Light it. Tweak it. Love it.",
+        "text":[
+          "iPad Mini lets you capture videos that are beautifully true to life, with greater detail and smoother motion. Epic processing power means it can shoot 4K video with extended dynamic range and cinematic video stabilization — all at 60 fps. You get more creative control, too, with four times more scene and powerful new editing tools to play with."
+          ]
+      }
+    ],
+    "screen":"8.3' IPS",
+    "resolution":"1488x2266",
+    "processor":" ",
+    "ram":"4GB",
+    "camera":"12 Mp + 12 Mp + 12MP",
+    "zoom":"Digital, 5x",
+    "cell":["GPRS","EDGE","WCDMA","UMTS","HSPA","LTE"]
+  },
+  {
+    "id":"apple-ipad-mini-256gb-violet",
+    "namespaceId":"apple-ipad-mini",
+    "name":"Apple iPad mini 256GB MK8K3TU/A",
+    "capacityAvailable":["64GB","256GB"],
+    "capacity":"256GB",
+    "priceRegular":870,
+    "priceDiscount":799,
+    "colorsAvailable":["bej","gray","violet"],
+    "color":"violet",
+    "images":[
+      "img/tablets/apple-ipad-mini/violet/00.webp",
+      "img/tablets/apple-ipad-mini/violet/01.webp",
+      "img/tablets/apple-ipad-mini/violet/02.webp",
+      "img/tablets/apple-ipad-mini/violet/03.webp",
+      "img/tablets/apple-ipad-mini/violet/04.webp"],
+    "description":[
+      {
+        "title":"And then there was Mini",
+        "text":[
+          "A transformative camera system that adds tons of capability without complexity.",
+          "An unprecedented leap in battery life. And a mind-blowing chip that doubles down on machine learning and pushes the boundaries of what a tablet can do. Welcome to the first iPad powerful enough to be called Mini."
+        ]
+      },
+      {
+        "title":"Camera",
+        "text":[
+          "Meet the first camera system to combine cutting-edge technology with the legendary simplicity of iPad. Capture up to four times more scene. Get beautiful images in drastically lower light. Shoot the highest-quality video in a tablet — then edit with the same tools you love for photos. You’ve never shot with anything like it."
+          ]
+      },
+      {
+        "title":"Shoot it. Flip it. Zoom it. Crop it. Cut it. Light it. Tweak it. Love it.",
+        "text":[
+          "iPad Mini lets you capture videos that are beautifully true to life, with greater detail and smoother motion. Epic processing power means it can shoot 4K video with extended dynamic range and cinematic video stabilization — all at 60 fps. You get more creative control, too, with four times more scene and powerful new editing tools to play with."
+          ]
+      }
+    ],
+    "screen":"8.3' IPS",
+    "resolution":"1488x2266",
+    "processor":" ",
+    "ram":"8GB",
+    "camera":"12 Mp + 12 Mp + 12MP",
+    "zoom":"Digital, 5x",
+    "cell":["GPRS","EDGE","WCDMA","UMTS","HSPA","LTE"]
+  }
+]
