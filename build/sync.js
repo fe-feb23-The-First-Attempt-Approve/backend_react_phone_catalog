@@ -11,16 +11,21 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 // import { Accessory } from './models/Accessory';
 // import { Phone } from './models/Phone';
-// import { ProductDetail } from './models/ProductDetail';
-const Tablet_1 = require("./models/Tablet");
+// import { PhoneDetail } from './models/PhoneDetail';
+// import { TabletDetail } from './models/TabletDetail';
+// import { Tablet } from './models/Tablet';
+// import { AccessoryDetails } from './models/AccessoryDetail';
 const dbinit_1 = require("./utils/dbinit");
 const seedInitialData_1 = require("./utils/seedInitialData");
 const sync = () => __awaiter(void 0, void 0, void 0, function* () {
     (0, dbinit_1.dbinit)();
+    // { force: true }
     // await Phone.sync();
-    yield Tablet_1.Tablet.sync({ force: true });
+    // await Tablet.sync();
     // await Accessory.sync();
-    // await ProductDetail.sync();
+    // await PhoneDetail.sync();
+    // await TabletDetail.sync();
+    // await AccessoryDetails.sync();
     yield (0, seedInitialData_1.seedInitialData)();
 });
 sync();

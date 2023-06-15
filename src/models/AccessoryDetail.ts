@@ -1,44 +1,32 @@
 import { DataTypes } from 'sequelize';
 import {
   AllowNull,
-  AutoIncrement,
   Column,
   Model,
   PrimaryKey,
   Table,
 } from 'sequelize-typescript';
+import { Description } from '../types.ts/Description';
 
 @Table({
-  tableName: 'accessories',
+  tableName: 'accessorydetails',
   createdAt: false,
   updatedAt: false,
 })
-export class Accessory extends Model {
+
+export class AccessoryDetails extends Model {
   @PrimaryKey
-  @AutoIncrement
   @AllowNull(false)
   @Column({
-    type: DataTypes.INTEGER,
+    type: DataTypes.STRING,
   })
-    id: number;
+    id: string;
 
   @AllowNull(false)
   @Column({
     type: DataTypes.STRING,
   })
-    category: string;
-
-  @AllowNull(false)
-  @Column({
-    type: DataTypes.STRING,
-  })
-    accessoryId: string;
-
-  @AllowNull(false)
-  @Column({
-    type: DataTypes.STRING,
-  })
-    itemId: string;
+    namespaceId: string;
 
   @AllowNull(false)
   @Column({
@@ -48,15 +36,51 @@ export class Accessory extends Model {
 
   @AllowNull(false)
   @Column({
-    type: DataTypes.INTEGER,
+    type: DataTypes.ARRAY(DataTypes.STRING),
   })
-    fullPrice: number;
+    capacityAvailable: string[];
+
+  @AllowNull(false)
+  @Column({
+    type: DataTypes.STRING,
+  })
+    capacity: string;
 
   @AllowNull(false)
   @Column({
     type: DataTypes.INTEGER,
   })
-    price: number;
+    priceRegular: number;
+
+  @AllowNull(false)
+  @Column({
+    type: DataTypes.INTEGER,
+  })
+    priceDiscount: number;
+
+  @AllowNull(false)
+  @Column({
+    type: DataTypes.ARRAY(DataTypes.STRING),
+  })
+    colorsAvailable: string[];
+
+  @AllowNull(false)
+  @Column({
+    type: DataTypes.STRING,
+  })
+    color: string;
+
+  @AllowNull(false)
+  @Column({
+    type: DataTypes.ARRAY(DataTypes.STRING),
+  })
+    images: string[];
+
+  @AllowNull(false)
+  @Column({
+    type: DataTypes.ARRAY(DataTypes.JSON),
+  })
+    description: Description[];
 
   @AllowNull(false)
   @Column({
@@ -68,13 +92,13 @@ export class Accessory extends Model {
   @Column({
     type: DataTypes.STRING,
   })
-    capacity: string;
+    resolution: string;
 
   @AllowNull(false)
   @Column({
     type: DataTypes.STRING,
   })
-    color: string;
+    processor: string;
 
   @AllowNull(false)
   @Column({
@@ -84,13 +108,19 @@ export class Accessory extends Model {
 
   @AllowNull(false)
   @Column({
-    type: DataTypes.INTEGER,
+    type: DataTypes.STRING,
   })
-    year: number;
+    camera: string;
 
   @AllowNull(false)
   @Column({
     type: DataTypes.STRING,
   })
-    image: string;
+    zoom: string;
+
+  @AllowNull(false)
+  @Column({
+    type: DataTypes.ARRAY(DataTypes.STRING),
+  })
+    cell: string[];
 }

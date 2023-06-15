@@ -32,7 +32,7 @@ export class Tablet extends Model {
   @Column({
     type: DataTypes.STRING,
   })
-    phoneId: string;
+    tabletId: string;
 
   @AllowNull(false)
   @Column({

@@ -11,14 +11,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.findRange = exports.findHot = exports.findMinMaxPrices = exports.findById = exports.findAll = void 0;
 const Phone_1 = require("../models/Phone");
-const ProductDetail_1 = require("../models/ProductDetail");
+const PhoneDetail_1 = require("../models/PhoneDetail");
 const pagination_1 = require("../utils/pagination");
 const findAll = () => {
     return Phone_1.Phone.findAll();
 };
 exports.findAll = findAll;
 const findById = (id) => {
-    return ProductDetail_1.ProductDetail.findByPk(id);
+    return PhoneDetail_1.PhoneDetail.findByPk(id);
 };
 exports.findById = findById;
 const findMinMaxPrices = () => __awaiter(void 0, void 0, void 0, function* () {

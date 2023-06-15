@@ -1,5 +1,5 @@
 import { Phone } from '../models/Phone';
-import { ProductDetail } from '../models/ProductDetail';
+import { PhoneDetail } from '../models/PhoneDetail';
 import { SortType } from '../types.ts/SortType';
 import {
   getFilteredItemsByPrice, getSortedItems, getSlice,
@@ -10,7 +10,7 @@ export const findAll = () => {
 };
 
 export const findById = (id: string) => {
-  return ProductDetail.findByPk(id);
+  return PhoneDetail.findByPk(id);
 };
 
 export const findMinMaxPrices = async() => {
