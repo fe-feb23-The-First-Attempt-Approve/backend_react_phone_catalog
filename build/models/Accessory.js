@@ -30,7 +30,7 @@ __decorate([
     (0, sequelize_typescript_1.Column)({
         type: sequelize_1.DataTypes.STRING,
     })
-], Accessory.prototype, "phoneId", void 0);
+], Accessory.prototype, "accessoryId", void 0);
 __decorate([
     (0, sequelize_typescript_1.AllowNull)(false),
     (0, sequelize_typescript_1.Column)({

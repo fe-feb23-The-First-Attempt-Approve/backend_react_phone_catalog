@@ -6,95 +6,124 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Tablet = void 0;
+exports.AccessoryDetails = void 0;
 const sequelize_1 = require("sequelize");
 const sequelize_typescript_1 = require("sequelize-typescript");
-let Tablet = exports.Tablet = class Tablet extends sequelize_typescript_1.Model {
+let AccessoryDetails = exports.AccessoryDetails = class AccessoryDetails extends sequelize_typescript_1.Model {
 };
 __decorate([
     sequelize_typescript_1.PrimaryKey,
-    sequelize_typescript_1.AutoIncrement,
     (0, sequelize_typescript_1.AllowNull)(false),
     (0, sequelize_typescript_1.Column)({
-        type: sequelize_1.DataTypes.INTEGER,
+        type: sequelize_1.DataTypes.STRING,
     })
-], Tablet.prototype, "id", void 0);
+], AccessoryDetails.prototype, "id", void 0);
 __decorate([
     (0, sequelize_typescript_1.AllowNull)(false),
     (0, sequelize_typescript_1.Column)({
         type: sequelize_1.DataTypes.STRING,
     })
-], Tablet.prototype, "category", void 0);
+], AccessoryDetails.prototype, "namespaceId", void 0);
 __decorate([
     (0, sequelize_typescript_1.AllowNull)(false),
     (0, sequelize_typescript_1.Column)({
         type: sequelize_1.DataTypes.STRING,
     })
-], Tablet.prototype, "tabletId", void 0);
+], AccessoryDetails.prototype, "name", void 0);
+__decorate([
+    (0, sequelize_typescript_1.AllowNull)(false),
+    (0, sequelize_typescript_1.Column)({
+        type: sequelize_1.DataTypes.ARRAY(sequelize_1.DataTypes.STRING),
+    })
+], AccessoryDetails.prototype, "capacityAvailable", void 0);
 __decorate([
     (0, sequelize_typescript_1.AllowNull)(false),
     (0, sequelize_typescript_1.Column)({
         type: sequelize_1.DataTypes.STRING,
     })
-], Tablet.prototype, "itemId", void 0);
-__decorate([
-    (0, sequelize_typescript_1.AllowNull)(false),
-    (0, sequelize_typescript_1.Column)({
-        type: sequelize_1.DataTypes.STRING,
-    })
-], Tablet.prototype, "name", void 0);
-__decorate([
-    (0, sequelize_typescript_1.AllowNull)(false),
-    (0, sequelize_typescript_1.Column)({
-        type: sequelize_1.DataTypes.INTEGER,
-    })
-], Tablet.prototype, "fullPrice", void 0);
+], AccessoryDetails.prototype, "capacity", void 0);
 __decorate([
     (0, sequelize_typescript_1.AllowNull)(false),
     (0, sequelize_typescript_1.Column)({
         type: sequelize_1.DataTypes.INTEGER,
     })
-], Tablet.prototype, "price", void 0);
-__decorate([
-    (0, sequelize_typescript_1.AllowNull)(false),
-    (0, sequelize_typescript_1.Column)({
-        type: sequelize_1.DataTypes.STRING,
-    })
-], Tablet.prototype, "screen", void 0);
-__decorate([
-    (0, sequelize_typescript_1.AllowNull)(false),
-    (0, sequelize_typescript_1.Column)({
-        type: sequelize_1.DataTypes.STRING,
-    })
-], Tablet.prototype, "capacity", void 0);
-__decorate([
-    (0, sequelize_typescript_1.AllowNull)(false),
-    (0, sequelize_typescript_1.Column)({
-        type: sequelize_1.DataTypes.STRING,
-    })
-], Tablet.prototype, "color", void 0);
-__decorate([
-    (0, sequelize_typescript_1.AllowNull)(false),
-    (0, sequelize_typescript_1.Column)({
-        type: sequelize_1.DataTypes.STRING,
-    })
-], Tablet.prototype, "ram", void 0);
+], AccessoryDetails.prototype, "priceRegular", void 0);
 __decorate([
     (0, sequelize_typescript_1.AllowNull)(false),
     (0, sequelize_typescript_1.Column)({
         type: sequelize_1.DataTypes.INTEGER,
     })
-], Tablet.prototype, "year", void 0);
+], AccessoryDetails.prototype, "priceDiscount", void 0);
+__decorate([
+    (0, sequelize_typescript_1.AllowNull)(false),
+    (0, sequelize_typescript_1.Column)({
+        type: sequelize_1.DataTypes.ARRAY(sequelize_1.DataTypes.STRING),
+    })
+], AccessoryDetails.prototype, "colorsAvailable", void 0);
 __decorate([
     (0, sequelize_typescript_1.AllowNull)(false),
     (0, sequelize_typescript_1.Column)({
         type: sequelize_1.DataTypes.STRING,
     })
-], Tablet.prototype, "image", void 0);
-exports.Tablet = Tablet = __decorate([
+], AccessoryDetails.prototype, "color", void 0);
+__decorate([
+    (0, sequelize_typescript_1.AllowNull)(false),
+    (0, sequelize_typescript_1.Column)({
+        type: sequelize_1.DataTypes.ARRAY(sequelize_1.DataTypes.STRING),
+    })
+], AccessoryDetails.prototype, "images", void 0);
+__decorate([
+    (0, sequelize_typescript_1.AllowNull)(false),
+    (0, sequelize_typescript_1.Column)({
+        type: sequelize_1.DataTypes.ARRAY(sequelize_1.DataTypes.JSON),
+    })
+], AccessoryDetails.prototype, "description", void 0);
+__decorate([
+    (0, sequelize_typescript_1.AllowNull)(false),
+    (0, sequelize_typescript_1.Column)({
+        type: sequelize_1.DataTypes.STRING,
+    })
+], AccessoryDetails.prototype, "screen", void 0);
+__decorate([
+    (0, sequelize_typescript_1.AllowNull)(false),
+    (0, sequelize_typescript_1.Column)({
+        type: sequelize_1.DataTypes.STRING,
+    })
+], AccessoryDetails.prototype, "resolution", void 0);
+__decorate([
+    (0, sequelize_typescript_1.AllowNull)(false),
+    (0, sequelize_typescript_1.Column)({
+        type: sequelize_1.DataTypes.STRING,
+    })
+], AccessoryDetails.prototype, "processor", void 0);
+__decorate([
+    (0, sequelize_typescript_1.AllowNull)(false),
+    (0, sequelize_typescript_1.Column)({
+        type: sequelize_1.DataTypes.STRING,
+    })
+], AccessoryDetails.prototype, "ram", void 0);
+__decorate([
+    (0, sequelize_typescript_1.AllowNull)(false),
+    (0, sequelize_typescript_1.Column)({
+        type: sequelize_1.DataTypes.STRING,
+    })
+], AccessoryDetails.prototype, "camera", void 0);
+__decorate([
+    (0, sequelize_typescript_1.AllowNull)(false),
+    (0, sequelize_typescript_1.Column)({
+        type: sequelize_1.DataTypes.STRING,
+    })
+], AccessoryDetails.prototype, "zoom", void 0);
+__decorate([
+    (0, sequelize_typescript_1.AllowNull)(false),
+    (0, sequelize_typescript_1.Column)({
+        type: sequelize_1.DataTypes.ARRAY(sequelize_1.DataTypes.STRING),
+    })
+], AccessoryDetails.prototype, "cell", void 0);
+exports.AccessoryDetails = AccessoryDetails = __decorate([
     (0, sequelize_typescript_1.Table)({
-        tableName: 'tablets',
+        tableName: 'accessorydetails',
         createdAt: false,
         updatedAt: false,
     })
-], Tablet);
+], AccessoryDetails);

@@ -1,8 +1,8 @@
-import { Phone } from '../models/Phone';
+import { Gadget } from '../types.ts/Gadget';
 import { SortType } from '../types.ts/SortType';
 
 export const getSlice = (
-  items: Phone[], currentPage: number, perPage: number,
+  items: Gadget[], currentPage: number, perPage: number,
 ) => {
   const firstVisibleItemIndex = (currentPage - 1) * perPage;
   const lastItemIndex = firstVisibleItemIndex + perPage;
@@ -14,14 +14,17 @@ export const getSlice = (
 };
 
 export const getFilteredItemsByPrice = (
-  items: Phone[], priceRange: number[] | number,
+  items: Gadget[], priceRange: number[] | number,
 ) => {
   const [min, max] = Array.isArray(priceRange) ? priceRange : [0, priceRange];
 
   return items.filter(item => item.price >= min && item.price <= max);
 };
 
-export const getSortedItems = (items: Phone[], sortType: SortType): Phone[] => {
+export const getSortedItems = (
+  items: Gadget[],
+  sortType: SortType,
+): Gadget[] => {
   const sortedItems = [...items];
 
   sortedItems.sort((currentItem, nextItem) => {

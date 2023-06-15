@@ -1,17 +1,23 @@
 // import { Accessory } from './models/Accessory';
 // import { Phone } from './models/Phone';
-// import { ProductDetail } from './models/ProductDetail';
-import { Tablet } from './models/Tablet';
+// import { PhoneDetail } from './models/PhoneDetail';
+// import { TabletDetail } from './models/TabletDetail';
+// import { Tablet } from './models/Tablet';
+// import { AccessoryDetails } from './models/AccessoryDetail';
 import { dbinit } from './utils/dbinit';
 import { seedInitialData } from './utils/seedInitialData';
 
 const sync = async() => {
   dbinit();
 
+  // { force: true }
+
   // await Phone.sync();
-  await Tablet.sync({ force: true });
+  // await Tablet.sync();
   // await Accessory.sync();
-  // await ProductDetail.sync();
+  // await PhoneDetail.sync();
+  // await TabletDetail.sync();
+  // await AccessoryDetails.sync();
 
   await seedInitialData();
 };

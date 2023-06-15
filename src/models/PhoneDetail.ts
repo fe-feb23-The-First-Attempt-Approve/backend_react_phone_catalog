@@ -9,12 +9,12 @@ import {
 import { Description } from '../types.ts/Description';
 
 @Table({
-  tableName: 'productdetails',
+  tableName: 'phonedetails',
   createdAt: false,
   updatedAt: false,
 })
 
-export class ProductDetail extends Model {
+export class PhoneDetail extends Model {
   @PrimaryKey
   @AllowNull(false)
   @Column({
