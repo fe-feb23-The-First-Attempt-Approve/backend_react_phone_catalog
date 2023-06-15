@@ -1,7 +1,9 @@
-import { Order, Op } from 'sequelize';
 import { Phone } from '../models/Phone';
 import { ProductDetail } from '../models/ProductDetail';
 import { SortType } from '../types.ts/SortType';
+import {
+  getFilteredItemsByPrice, getSortedItems, getSlice,
+} from '../utils/pagination';
 
 export const findAll = () => {
   return Phone.findAll();
@@ -11,7 +13,7 @@ export const findById = (id: string) => {
   return ProductDetail.findByPk(id);
 };
 
-export const getMinMaxPrices = async() => {
+export const findMinMaxPrices = async() => {
   const phones = await findAll();
   const prices = phones.map(item => item.price);
 
@@ -21,22 +23,17 @@ export const getMinMaxPrices = async() => {
   return [min, max];
 };
 
-export const getOrder = (sortBy: SortType): Order => {
-  switch (sortBy) {
-    case SortType.HightPrice:
-      return [['price', 'DESC']];
-    case SortType.LowPrice:
-      return [['price', 'ASC']];
-    case SortType.Name:
-      return [['name', 'ASC']];
-    case SortType.New:
-      return [['year', 'DESC']];
-    case SortType.Old:
-      return [['year', 'ASC']];
+export const findHot = async() => {
+  const phones = await findAll();
 
-    default:
-      throw new Error('Wrong sort type!');
-  }
+  const sorted = phones.sort((itemA, itemB) => {
+    const discountA = itemA.fullPrice - itemA.price;
+    const discountB = itemB.fullPrice - itemB.price;
+
+    return discountB - discountA;
+  });
+
+  return sorted;
 };
 
 export const findRange = async(
@@ -46,19 +43,15 @@ export const findRange = async(
   maxPrice: number,
   minPrice: number,
 ) => {
-  const offset = currentPage ? (currentPage - 1) * perPage : 0;
-  const order: Order = getOrder(sort);
-  const allPhonesCount = (await Phone.findAll()).length;
-  const phones = await Phone.findAll({
-    where: {
-      price: {
-        [Op.between]: [minPrice, maxPrice],
-      },
-    },
-    offset,
-    limit: perPage,
-    order,
-  });
+  const phones = await findAll();
 
-  return { allPhonesCount, phones };
+  let visiblePhones = getFilteredItemsByPrice(phones, [minPrice, maxPrice]);
+
+  const phonesCount = visiblePhones.length;
+
+  visiblePhones = getSortedItems(visiblePhones, sort);
+
+  visiblePhones = getSlice(visiblePhones, currentPage, perPage);
+
+  return { phonesCount, visiblePhones };
 };
