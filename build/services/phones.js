@@ -9,11 +9,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.findRange = exports.getOrder = exports.getMinMaxPrices = exports.findById = exports.findAll = void 0;
-const sequelize_1 = require("sequelize");
+exports.findRange = exports.findHot = exports.findMinMaxPrices = exports.findById = exports.findAll = void 0;
 const Phone_1 = require("../models/Phone");
 const ProductDetail_1 = require("../models/ProductDetail");
-const SortType_1 = require("../types.ts/SortType");
+const pagination_1 = require("../utils/pagination");
 const findAll = () => {
     return Phone_1.Phone.findAll();
 };
@@ -22,45 +21,31 @@ const findById = (id) => {
     return ProductDetail_1.ProductDetail.findByPk(id);
 };
 exports.findById = findById;
-const getMinMaxPrices = () => __awaiter(void 0, void 0, void 0, function* () {
+const findMinMaxPrices = () => __awaiter(void 0, void 0, void 0, function* () {
     const phones = yield (0, exports.findAll)();
     const prices = phones.map(item => item.price);
     const min = Math.min(...prices);
     const max = Math.max(...prices);
     return [min, max];
 });
-exports.getMinMaxPrices = getMinMaxPrices;
-const getOrder = (sortBy) => {
-    switch (sortBy) {
-        case SortType_1.SortType.HightPrice:
-            return [['price', 'DESC']];
-        case SortType_1.SortType.LowPrice:
-            return [['price', 'ASC']];
-        case SortType_1.SortType.Name:
-            return [['name', 'ASC']];
-        case SortType_1.SortType.New:
-            return [['year', 'DESC']];
-        case SortType_1.SortType.Old:
-            return [['year', 'ASC']];
-        default:
-            throw new Error('Wrong sort type!');
-    }
-};
-exports.getOrder = getOrder;
-const findRange = (currentPage, perPage, sort, maxPrice, minPrice) => __awaiter(void 0, void 0, void 0, function* () {
-    const offset = currentPage ? (currentPage - 1) * perPage : 0;
-    const order = (0, exports.getOrder)(sort);
-    const allPhonesCount = (yield Phone_1.Phone.findAll()).length;
-    const phones = yield Phone_1.Phone.findAll({
-        where: {
-            price: {
-                [sequelize_1.Op.between]: [minPrice, maxPrice],
-            },
-        },
-        offset,
-        limit: perPage,
-        order,
+exports.findMinMaxPrices = findMinMaxPrices;
+const findHot = () => __awaiter(void 0, void 0, void 0, function* () {
+    const phones = yield (0, exports.findAll)();
+    const sorted = phones.sort((itemA, itemB) => {
+        const discountA = itemA.fullPrice - itemA.price;
+        const discountB = itemB.fullPrice - itemB.price;
+        return discountB - discountA;
     });
-    return { allPhonesCount, phones };
+    return sorted;
+});
+exports.findHot = findHot;
+const findRange = (currentPage, perPage, sort, maxPrice, minPrice) => __awaiter(void 0, void 0, void 0, function* () {
+    const phones = yield (0, exports.findAll)();
+    const allPhonesCount = phones.length;
+    let visiblePhones = (0, pagination_1.getFilteredItemsByPrice)(phones, [minPrice, maxPrice]);
+    const filteredCount = visiblePhones.length;
+    visiblePhones = (0, pagination_1.getSortedItems)(visiblePhones, sort);
+    visiblePhones = (0, pagination_1.getSlice)(visiblePhones, currentPage, perPage);
+    return { allPhonesCount, filteredCount, visiblePhones };
 });
 exports.findRange = findRange;

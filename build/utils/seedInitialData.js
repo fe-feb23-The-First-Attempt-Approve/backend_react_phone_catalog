@@ -10,15 +10,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.seedInitialData = void 0;
-const Accessory_1 = require("../models/Accessory");
-const Phone_1 = require("../models/Phone");
-const ProductDetail_1 = require("../models/ProductDetail");
+// import { Accessory } from '../models/Accessory';
+// import { Phone } from '../models/Phone';
+// import { ProductDetail } from '../models/ProductDetail';
 const Tablet_1 = require("../models/Tablet");
 const readData_1 = require("./readData");
 const seedInitialData = () => __awaiter(void 0, void 0, void 0, function* () {
-    yield Phone_1.Phone.bulkCreate((0, readData_1.readData)('api', 'phones.json'));
-    yield ProductDetail_1.ProductDetail.bulkCreate((0, readData_1.readData)('api', 'details.json'));
-    yield Tablet_1.Tablet.bulkCreate([]);
-    yield Accessory_1.Accessory.bulkCreate([]);
+    // await Phone.bulkCreate(readData('api', 'phones.json'));
+    // await ProductDetail.bulkCreate(readData('api', 'details.json'));
+    yield Tablet_1.Tablet.bulkCreate((0, readData_1.readData)('api', 'tablets.json'));
+    // await Accessory.bulkCreate(readData('api', 'details.json'));
 });
 exports.seedInitialData = seedInitialData;
