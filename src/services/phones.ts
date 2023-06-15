@@ -45,13 +45,15 @@ export const findRange = async(
 ) => {
   const phones = await findAll();
 
+  const allPhonesCount = phones.length;
+
   let visiblePhones = getFilteredItemsByPrice(phones, [minPrice, maxPrice]);
 
-  const phonesCount = visiblePhones.length;
+  const filteredCount = visiblePhones.length;
 
   visiblePhones = getSortedItems(visiblePhones, sort);
 
   visiblePhones = getSlice(visiblePhones, currentPage, perPage);
 
-  return { phonesCount, visiblePhones };
+  return { allPhonesCount, filteredCount, visiblePhones };
 };
