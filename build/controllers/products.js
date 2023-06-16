@@ -9,19 +9,21 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-// import { PhoneDetail } from './models/PhoneDetail';
-// import { TabletDetail } from './models/TabletDetail';
-// import { AccessoryDetails } from './models/AccessoryDetail';
-// import { Product } from './models/Product';
-const dbinit_1 = require("./utils/dbinit");
-const seedInitialData_1 = require("./utils/seedInitialData");
-const sync = () => __awaiter(void 0, void 0, void 0, function* () {
-    (0, dbinit_1.dbinit)();
-    // { force: true }
-    // await PhoneDetail.sync();
-    // await TabletDetail.sync();
-    // await AccessoryDetails.sync();
-    // await Product.sync();
-    yield (0, seedInitialData_1.seedInitialData)();
+exports.getHot = exports.getByIds = exports.getAll = void 0;
+const products_1 = require("../services/products");
+const getAll = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const products = yield (0, products_1.findAll)();
+    res.send(products);
 });
-sync();
+exports.getAll = getAll;
+const getByIds = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { ids } = req.body;
+    const products = yield (0, products_1.findByIds)(ids);
+    res.send(products);
+});
+exports.getByIds = getByIds;
+const getHot = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const hotProducts = yield (0, products_1.findHot)();
+    res.send(hotProducts);
+});
+exports.getHot = getHot;

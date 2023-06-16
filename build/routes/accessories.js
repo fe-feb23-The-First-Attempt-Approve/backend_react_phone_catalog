@@ -8,6 +8,5 @@ const express_1 = __importDefault(require("express"));
 const accessories_1 = require("../controllers/accessories");
 exports.router = express_1.default.Router();
 exports.router.get('/', accessories_1.getRange);
+exports.router.get('/:itemId', accessories_1.getOne);
 exports.router.get('/prices', accessories_1.getMinMaxPrices);
-exports.router.get('/hot', accessories_1.getHot);
-exports.router.get('/:accessoryId', accessories_1.getOne);

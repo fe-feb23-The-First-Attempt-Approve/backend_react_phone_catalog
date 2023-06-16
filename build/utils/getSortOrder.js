@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getOrder = void 0;
-const SortType_1 = require("../types.ts/SortType");
+const SortType_1 = require("../types/SortType");
 const getOrder = (sortBy) => {
     switch (sortBy) {
         case SortType_1.SortType.HightPrice:

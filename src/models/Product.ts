@@ -9,11 +9,11 @@ import {
 } from 'sequelize-typescript';
 
 @Table({
-  tableName: 'accessories',
+  tableName: 'products',
   createdAt: false,
   updatedAt: false,
 })
-export class Accessory extends Model {
+export class Product extends Model {
   @PrimaryKey
   @AutoIncrement
   @AllowNull(false)
@@ -27,12 +27,6 @@ export class Accessory extends Model {
     type: DataTypes.STRING,
   })
     category: string;
-
-  @AllowNull(false)
-  @Column({
-    type: DataTypes.STRING,
-  })
-    accessoryId: string;
 
   @AllowNull(false)
   @Column({

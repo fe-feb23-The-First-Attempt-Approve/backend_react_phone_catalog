@@ -4,6 +4,7 @@ import { dbinit } from './utils/dbinit';
 import { router as phonesRouter } from './routes/phones';
 import { router as tabletsRouter } from './routes/tablets';
 import { router as accessoriesRouter } from './routes/accessories';
+import { router as productsRouter } from './routes/products';
 
 const PORT = 3000;
 
@@ -16,6 +17,7 @@ server.use(express.json());
 server.use('/phones', phonesRouter);
 server.use('/tablets', tabletsRouter);
 server.use('/accessories', accessoriesRouter);
+server.use('/products', productsRouter);
 
 server.listen(PORT, () => {
   // eslint-disable-next-line no-console
