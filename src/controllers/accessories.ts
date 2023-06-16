@@ -1,36 +1,42 @@
 import {
-  findAll, findById, findRange, findMinMaxPrices, findHot,
-} from '../services/accessories';
+  findAllByCategory,
+  findMinMaxPrices,
+  findRange,
+} from '../services/products';
+import { findById } from '../services/accessories';
 // eslint-disable-next-line no-shadow
 import { Request, Response } from 'express';
-import { SortType } from '../types.ts/SortType';
+import { SortType } from '../types/SortType';
 
-export const getAll = async(req: Request, res: Response) => {
-  const accessories = await findAll();
+const category = 'accessories';
 
-  res.send(accessories);
+export const getOne = async(req: Request, res: Response) => {
+  const { itemId } = req.params;
+  const foundProduct = await findById(itemId);
+
+  if (!foundProduct) {
+    res.sendStatus(404);
+
+    return;
+  }
+
+  res.send(foundProduct);
 };
 
 export const getAllCount = async(req: Request, res: Response) => {
-  const accessoriesCount = (await findAll()).length;
+  const productsCount = (await findAllByCategory(category)).length;
 
-  res.send({ accessoriesCount });
-};
-
-export const getHot = async(req: Request, res: Response) => {
-  const hotAccessories = await findHot();
-
-  res.send(hotAccessories);
+  res.send({ productsCount });
 };
 
 export const getMinMaxPrices = async(req: Request, res: Response) => {
-  const [min, max] = await findMinMaxPrices();
+  const [min, max] = await findMinMaxPrices(category);
 
   res.send({ min, max });
 };
 
 export const getRange = async(req: Request, res: Response) => {
-  const [min, max] = await findMinMaxPrices();
+  const [min, max] = await findMinMaxPrices(category);
 
   const {
     page = 1,
@@ -40,26 +46,14 @@ export const getRange = async(req: Request, res: Response) => {
     minPrice = min,
   } = req.query;
 
-  const accessoriesInfo = await findRange(
+  const productsInfo = await findRange(
     Number(page),
     Number(perPage),
     sort as SortType,
     Number(maxPrice),
     Number(minPrice),
+    category,
   );
 
-  res.send(accessoriesInfo);
-};
-
-export const getOne = async(req: Request, res: Response) => {
-  const { accessoryId } = req.params;
-  const foundAccessory = await findById(accessoryId);
-
-  if (!foundAccessory) {
-    res.sendStatus(404);
-
-    return;
-  }
-
-  res.send(foundAccessory);
+  res.send(productsInfo);
 };

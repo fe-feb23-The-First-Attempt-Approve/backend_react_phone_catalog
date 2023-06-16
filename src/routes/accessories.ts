@@ -1,11 +1,8 @@
 import express from 'express';
-import {
-  getOne, getRange, getMinMaxPrices, getHot,
-} from '../controllers/accessories';
+import { getRange, getMinMaxPrices, getOne } from '../controllers/accessories';
 
 export const router = express.Router();
 
 router.get('/', getRange);
+router.get('/:itemId', getOne);
 router.get('/prices', getMinMaxPrices);
-router.get('/hot', getHot);
-router.get('/:accessoryId', getOne);

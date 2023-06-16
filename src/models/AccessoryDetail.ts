@@ -6,7 +6,7 @@ import {
   PrimaryKey,
   Table,
 } from 'sequelize-typescript';
-import { Description } from '../types.ts/Description';
+import { Description } from '../types/Description';
 
 @Table({
   tableName: 'accessorydetails',

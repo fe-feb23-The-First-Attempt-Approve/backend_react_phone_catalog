@@ -1,7 +1,6 @@
 [
   {
     "category": "tablets",
-    "tabletId": "apple-ipad-air-256gb-blue",
     "itemId": "apple-ipad-air-256gb-blue",
     "name": "Apple iPad Air 256GB MM9M3TU/A",
     "fullPrice": 960,
@@ -15,7 +14,6 @@
   },
   {
     "category": "tablets",
-    "tabletId": "apple-ipad-pro-128gb-gray",
     "itemId": "apple-ipad-pro-128gb-gray",
     "name": "Apple iPad Pro MNXP3TU/A",
     "fullPrice": 1100,
@@ -29,7 +27,6 @@
   },
   {
     "category": "tablets",
-    "tabletId": "apple-ipad-air-64gb-pink",
     "itemId": "apple-ipad-air-64gb-pink",
     "name": "Apple iPad Air 64GB MM9M3TU/A",
     "fullPrice": 900,
@@ -43,7 +40,6 @@
   },
   {
     "category": "tablets",
-    "tabletId": "apple-ipad-mini-256gb-bej",
     "itemId": "apple-ipad-mini-256gb-bej",
     "name": "Apple iPad Mini 256GB TMK7V3TU/A",
     "fullPrice": 870,
@@ -57,7 +53,6 @@
   },
   {
     "category": "tablets",
-    "tabletId": "apple-ipad-pro-2tb-white",
     "itemId": "apple-ipad-pro-2tb-white",
     "name": "Apple iPad Pro 2TB MNY03TU/A",
     "fullPrice": 2500,
@@ -71,7 +66,6 @@
   },
   {
     "category": "tablets",
-    "tabletId": "apple-ipad-64gb-white",
     "itemId": "apple-ipad-64gb-white",
     "name": "Apple iPad 64GB MK493TU/A",
     "fullPrice": 600,
@@ -85,7 +79,6 @@
   },
   {
     "category": "tablets",
-    "tabletId": "apple-ipad-mini-64gb-gray",
     "itemId": "apple-ipad-mini-64gb-gray",
     "name": "Apple iPad Mini 64GB MK7M3TU/A",
     "fullPrice": 680,
@@ -99,7 +92,6 @@
   },
   {
     "category": "tablets",
-    "tabletId": "apple-ipad-mini-256gb-violet",
     "itemId": "apple-ipad-mini-256gb-violet",
     "name": "Apple iPad mini 256GB MK8K3TU/A",
     "fullPrice": 1055,

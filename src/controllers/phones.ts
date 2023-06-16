@@ -1,36 +1,42 @@
 import {
-  findAll, findById, findRange, findMinMaxPrices, findHot,
-} from '../services/phones';
+  findAllByCategory,
+  findMinMaxPrices,
+  findRange,
+} from '../services/products';
+import { findById } from '../services/phones';
 // eslint-disable-next-line no-shadow
 import { Request, Response } from 'express';
-import { SortType } from '../types.ts/SortType';
+import { SortType } from '../types/SortType';
 
-export const getAll = async(req: Request, res: Response) => {
-  const phones = await findAll();
+const category = 'phones';
 
-  res.send(phones);
+export const getOne = async(req: Request, res: Response) => {
+  const { itemId } = req.params;
+  const foundProduct = await findById(itemId);
+
+  if (!foundProduct) {
+    res.sendStatus(404);
+
+    return;
+  }
+
+  res.send(foundProduct);
 };
 
 export const getAllCount = async(req: Request, res: Response) => {
-  const phonesCount = (await findAll()).length;
+  const productsCount = (await findAllByCategory(category)).length;
 
-  res.send({ phonesCount });
-};
-
-export const getHot = async(req: Request, res: Response) => {
-  const hotPhones = await findHot();
-
-  res.send(hotPhones);
+  res.send({ productsCount });
 };
 
 export const getMinMaxPrices = async(req: Request, res: Response) => {
-  const [min, max] = await findMinMaxPrices();
+  const [min, max] = await findMinMaxPrices(category);
 
   res.send({ min, max });
 };
 
 export const getRange = async(req: Request, res: Response) => {
-  const [min, max] = await findMinMaxPrices();
+  const [min, max] = await findMinMaxPrices(category);
 
   const {
     page = 1,
@@ -40,26 +46,14 @@ export const getRange = async(req: Request, res: Response) => {
     minPrice = min,
   } = req.query;
 
-  const phonesInfo = await findRange(
+  const productsInfo = await findRange(
     Number(page),
     Number(perPage),
     sort as SortType,
     Number(maxPrice),
     Number(minPrice),
+    category,
   );
 
-  res.send(phonesInfo);
-};
-
-export const getOne = async(req: Request, res: Response) => {
-  const { phoneId } = req.params;
-  const foundPhone = await findById(phoneId);
-
-  if (!foundPhone) {
-    res.sendStatus(404);
-
-    return;
-  }
-
-  res.send(foundPhone);
+  res.send(productsInfo);
 };

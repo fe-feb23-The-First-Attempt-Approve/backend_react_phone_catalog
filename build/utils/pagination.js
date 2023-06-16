@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getSortedItems = exports.getFilteredItemsByPrice = exports.getSlice = void 0;
-const SortType_1 = require("../types.ts/SortType");
+const SortType_1 = require("../types/SortType");
 const getSlice = (items, currentPage, perPage) => {
     const firstVisibleItemIndex = (currentPage - 1) * perPage;
     const lastItemIndex = firstVisibleItemIndex + perPage;

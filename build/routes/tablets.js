@@ -8,6 +8,5 @@ const express_1 = __importDefault(require("express"));
 const tablets_1 = require("../controllers/tablets");
 exports.router = express_1.default.Router();
 exports.router.get('/', tablets_1.getRange);
+exports.router.get('/:itemId', tablets_1.getOne);
 exports.router.get('/prices', tablets_1.getMinMaxPrices);
-exports.router.get('/hot', tablets_1.getHot);
-exports.router.get('/:tabletId', tablets_1.getOne);
