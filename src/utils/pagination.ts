@@ -1,5 +1,5 @@
 import { Phone } from '../models/Phone';
-import { SortType } from '../types.ts/SortType';
+import { SortType } from '../types/SortType';
 
 export const getSlice = (
   items: Phone[], currentPage: number, perPage: number,

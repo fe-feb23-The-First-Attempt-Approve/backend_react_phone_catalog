@@ -1,5 +1,5 @@
 import { Order } from 'sequelize';
-import { SortType } from '../types.ts/SortType';
+import { SortType } from '../types/SortType';
 
 export const getOrder = (sortBy: SortType): Order => {
   switch (sortBy) {

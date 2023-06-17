@@ -13,6 +13,7 @@ import {
   createdAt: false,
   updatedAt: false,
 })
+
 export class Tablet extends Model {
   @PrimaryKey
   @AutoIncrement

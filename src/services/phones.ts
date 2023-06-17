@@ -1,6 +1,6 @@
 import { Phone } from '../models/Phone';
 import { ProductDetail } from '../models/ProductDetail';
-import { SortType } from '../types.ts/SortType';
+import { SortType } from '../types/SortType';
 import {
   getFilteredItemsByPrice, getSortedItems, getSlice,
 } from '../utils/pagination';

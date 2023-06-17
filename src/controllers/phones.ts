@@ -3,7 +3,7 @@ import {
 } from '../services/phones';
 // eslint-disable-next-line no-shadow
 import { Request, Response } from 'express';
-import { SortType } from '../types.ts/SortType';
+import { SortType } from '../types/SortType';
 
 export const getAll = async(req: Request, res: Response) => {
   const phones = await findAll();
