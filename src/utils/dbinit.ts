@@ -1,7 +1,6 @@
 import { Sequelize } from 'sequelize-typescript';
 import { models } from '../models';
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-require('dotenv').config();
+import 'dotenv/config';
 
 const database = process.env.DATABASE;
 const username = process.env.USER;
