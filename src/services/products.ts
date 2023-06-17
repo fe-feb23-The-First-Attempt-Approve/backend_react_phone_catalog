@@ -48,6 +48,14 @@ export const findHot = async() => {
   return sorted;
 };
 
+export const findByQuery = async(query: string) => {
+  return Product.findAll({ where: {
+    name: {
+      [Op.iLike]: `%${query.toLocaleLowerCase()}%`,
+    },
+  } });
+};
+
 export const findRange = async(
   currentPage: number,
   perPage: number,
