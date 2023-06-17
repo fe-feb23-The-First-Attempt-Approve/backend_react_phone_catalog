@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getHot = exports.getByIds = exports.getAll = void 0;
+exports.getByQuery = exports.getHot = exports.getByIds = exports.getAll = void 0;
 const products_1 = require("../services/products");
 const getAll = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const products = yield (0, products_1.findAll)();
@@ -27,3 +27,12 @@ const getHot = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     res.send(hotProducts);
 });
 exports.getHot = getHot;
+const getByQuery = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { query = '' } = req.query;
+    if (!query) {
+        res.sendStatus(400);
+    }
+    const products = yield (0, products_1.findByQuery)(query.toString());
+    res.send(products);
+});
+exports.getByQuery = getByQuery;

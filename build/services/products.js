@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.findRange = exports.findHot = exports.findMinMaxPrices = exports.findAllByCategory = exports.findByIds = exports.findAll = void 0;
+exports.findRange = exports.findByQuery = exports.findHot = exports.findMinMaxPrices = exports.findAllByCategory = exports.findByIds = exports.findAll = void 0;
 const sequelize_1 = require("sequelize");
 const Product_1 = require("../models/Product");
 const pagination_1 = require("../utils/pagination");
@@ -51,6 +51,14 @@ const findHot = () => __awaiter(void 0, void 0, void 0, function* () {
     return sorted;
 });
 exports.findHot = findHot;
+const findByQuery = (query) => __awaiter(void 0, void 0, void 0, function* () {
+    return Product_1.Product.findAll({ where: {
+            name: {
+                [sequelize_1.Op.iLike]: `%${query.toLocaleLowerCase()}%`,
+            },
+        } });
+});
+exports.findByQuery = findByQuery;
 const findRange = (currentPage, perPage, sort, maxPrice, minPrice, category) => __awaiter(void 0, void 0, void 0, function* () {
     const products = yield (0, exports.findAllByCategory)(category);
     const allProductsCount = products.length;
