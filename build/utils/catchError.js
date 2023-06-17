@@ -1,9 +1,4 @@
 "use strict";
-// import { PhoneDetail } from './models/PhoneDetail';
-// import { TabletDetail } from './models/TabletDetail';
-// import { AccessoryDetails } from './models/AccessoryDetail';
-// import { Product } from './models/Product';
-// import { User } from './models/User';
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -14,16 +9,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const dbinit_1 = require("./utils/dbinit");
-const seedInitialData_1 = require("./utils/seedInitialData");
-const sync = () => __awaiter(void 0, void 0, void 0, function* () {
-    (0, dbinit_1.dbinit)();
-    // { force: true }
-    // await User.sync({ force: true });
-    // await PhoneDetail.sync();
-    // await TabletDetail.sync();
-    // await AccessoryDetails.sync();
-    // await Product.sync();
-    yield (0, seedInitialData_1.seedInitialData)();
-});
-sync();
+exports.catchError = void 0;
+const catchError = (action) => {
+    return (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+        try {
+            yield action(req, res, next);
+        }
+        catch (error) {
+            next(error);
+        }
+    });
+};
+exports.catchError = catchError;
