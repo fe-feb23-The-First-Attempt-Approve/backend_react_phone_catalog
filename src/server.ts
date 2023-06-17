@@ -8,7 +8,7 @@ import { router as productsRouter } from './routes/products';
 import { router as authRouter } from './routes/auth';
 import { errorMiddleware } from './middlewares/errorMiddleware';
 
-const PORT = 3000;
+const PORT = 4000;
 
 const server = express();
 
