@@ -68,7 +68,7 @@ export const activate = async(
   });
 
   if (!user) {
-    res.sendStatus(404).send();
+    res.sendStatus(404).send({ message: 'activation was failed' });
 
     return;
   }
