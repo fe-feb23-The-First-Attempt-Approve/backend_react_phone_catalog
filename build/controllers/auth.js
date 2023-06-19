@@ -62,7 +62,7 @@ const activate = (req, res, next) => __awaiter(void 0, void 0, void 0, function*
         where: { activationToken },
     });
     if (!user) {
-        res.sendStatus(404).send();
+        res.sendStatus(404).send({ message: 'activation was failed' });
         return;
     }
     user.activationToken = null;
