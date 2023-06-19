@@ -8,10 +8,12 @@ import { User } from '../models/User';
 export const seedInitialData = async() => {
   // await PhoneDetail.bulkCreate(readData('api', 'phoneDetails.json'));
   // await TabletDetail.bulkCreate(readData('api', 'tabletDetails.json'));
+
   // await AccessoryDetails.bulkCreate([]);
   // await Product.bulkCreate([
   //   ...readData('api', 'tablets.json'),
   //   ...readData('api', 'phones.json'),
   // ]);
+  
   await User.bulkCreate([]);
 };

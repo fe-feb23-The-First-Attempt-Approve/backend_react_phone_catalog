@@ -5,7 +5,6 @@ import { User } from '../models/User';
 import { getByEmail, registerUser } from '../services/userService';
 import 'dotenv/config';
 import { generateAccessToken } from '../services/jwtService';
-
 import bcrypt from 'bcrypt';
 
 const validatePassword = (password: string) => {
@@ -68,7 +67,7 @@ export const activate = async(
   });
 
   if (!user) {
-    res.sendStatus(404).send();
+    res.sendStatus(404).send({ message: 'activation was faild' });
 
     return;
   }
