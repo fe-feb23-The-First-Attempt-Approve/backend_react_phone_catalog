@@ -1,10 +1,4 @@
 "use strict";
-// import { PhoneDetail } from '../models/PhoneDetail';
-// import { TabletDetail } from '../models/TabletDetail';
-// import { AccessoryDetails } from '../models/AccessoryDetail';
-// import { Product } from '../models/Product';
-// import { readData } from './readData';
-// import { User } from '../models/User';
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -16,6 +10,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.seedInitialData = void 0;
+// import { PhoneDetail } from '../models/PhoneDetail';
+// import { TabletDetail } from '../models/TabletDetail';
+// import { AccessoryDetails } from '../models/AccessoryDetail';
+// import { Product } from '../models/Product';
+// import { readData } from './readData';
+const User_1 = require("../models/User");
 const seedInitialData = () => __awaiter(void 0, void 0, void 0, function* () {
     // await PhoneDetail.bulkCreate(readData('api', 'phoneDetails.json'));
     // await TabletDetail.bulkCreate(readData('api', 'tabletDetails.json'));
@@ -24,6 +24,6 @@ const seedInitialData = () => __awaiter(void 0, void 0, void 0, function* () {
     //   ...readData('api', 'tablets.json'),
     //   ...readData('api', 'phones.json'),
     // ]);
-    // await User.bulkCreate([]);
+    yield User_1.User.bulkCreate([]);
 });
 exports.seedInitialData = seedInitialData;
