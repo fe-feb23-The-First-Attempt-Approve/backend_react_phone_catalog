@@ -3,7 +3,7 @@
 // import { AccessoryDetails } from '../models/AccessoryDetail';
 // import { Product } from '../models/Product';
 // import { readData } from './readData';
-// import { User } from '../models/User';
+import { User } from '../models/User';
 
 export const seedInitialData = async() => {
   // await PhoneDetail.bulkCreate(readData('api', 'phoneDetails.json'));
@@ -13,5 +13,5 @@ export const seedInitialData = async() => {
   //   ...readData('api', 'tablets.json'),
   //   ...readData('api', 'phones.json'),
   // ]);
-  // await User.bulkCreate([]);
+  await User.bulkCreate([]);
 };
