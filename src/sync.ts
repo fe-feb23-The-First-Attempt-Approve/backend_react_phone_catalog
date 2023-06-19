@@ -10,7 +10,7 @@ import { seedInitialData } from './utils/seedInitialData';
 const sync = async() => {
   dbinit();
   // { force: true }
-  // await User.sync({ force: true });
+  // await User.sync();
   // await PhoneDetail.sync();
   // await TabletDetail.sync();
   // await AccessoryDetails.sync();
