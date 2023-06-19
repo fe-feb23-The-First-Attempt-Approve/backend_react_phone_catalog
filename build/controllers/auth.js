@@ -17,7 +17,6 @@ const User_1 = require("../models/User");
 const userService_1 = require("../services/userService");
 require("dotenv/config");
 const jwtService_1 = require("../services/jwtService");
-const ApiError_1 = require("../exceptions/ApiError");
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const validatePassword = (password) => {
     if (!password) {
@@ -43,9 +42,17 @@ const register = (req, res, next) => __awaiter(void 0, void 0, void 0, function*
         password: validatePassword(password),
     };
     if (errors.email || errors.password) {
-        throw ApiError_1.ApiError.BadRequest('Validation error', errors);
+        res.send(errors);
+        return;
     }
-    yield (0, userService_1.registerUser)({ userName, email, password });
+    try {
+        yield (0, userService_1.registerUser)({ userName, email, password });
+    }
+    catch (_a) {
+        errors.email = 'Email is already taken';
+        res.send(errors);
+        return;
+    }
     res.send({ message: 'User has been registered' });
 });
 exports.register = register;
@@ -55,7 +62,7 @@ const activate = (req, res, next) => __awaiter(void 0, void 0, void 0, function*
         where: { activationToken },
     });
     if (!user) {
-        res.sendStatus(404);
+        res.sendStatus(404).send({ message: 'activation was failed' });
         return;
     }
     user.activationToken = null;
@@ -65,18 +72,28 @@ const activate = (req, res, next) => __awaiter(void 0, void 0, void 0, function*
 exports.activate = activate;
 const login = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     const { email, password } = req.body;
+    const errors = {
+        email: '',
+        password: '',
+    };
     const user = yield (0, userService_1.getByEmail)(email);
     if (!user) {
-        throw ApiError_1.ApiError.BadRequest('User with email does not exist', {
-            email: 'User with email does not exist',
-        });
+        // throw ApiError.BadRequest('User with email does not exist', {
+        //   email: 'User with email does not exist',
+        // });
+        errors.email = 'User with email does not exist';
+        res.send(errors);
+        return;
     }
     try {
         const isPasswordValid = yield bcrypt_1.default.compare(password, user.password);
         if (!isPasswordValid) {
-            throw ApiError_1.ApiError.BadRequest('Password is wrong', {
-                password: 'Password is wrong',
-            });
+            // throw ApiError.BadRequest('Password is wrong', {
+            //   password: 'Password is wrong',
+            // });
+            errors.password = 'Password is wrong';
+            res.send(errors);
+            return;
         }
         const accessToken = (0, jwtService_1.generateAccessToken)(user);
         res.send({

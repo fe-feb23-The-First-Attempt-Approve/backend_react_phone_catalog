@@ -5,7 +5,7 @@ import { User } from '../models/User';
 import { getByEmail, registerUser } from '../services/userService';
 import 'dotenv/config';
 import { generateAccessToken } from '../services/jwtService';
-import { ApiError } from '../exceptions/ApiError';
+
 import bcrypt from 'bcrypt';
 
 const validatePassword = (password: string) => {
@@ -41,10 +41,19 @@ export const register = async(
   };
 
   if (errors.email || errors.password) {
-    throw ApiError.BadRequest('Validation error', errors);
+    res.send(errors);
+
+    return;
   }
 
-  await registerUser({ userName, email, password });
+  try {
+    await registerUser({ userName, email, password });
+  } catch {
+    errors.email = 'Email is already taken';
+    res.send(errors);
+
+    return;
+  }
 
   res.send({ message: 'User has been registered' });
 };
@@ -59,7 +68,7 @@ export const activate = async(
   });
 
   if (!user) {
-    res.sendStatus(404);
+    res.sendStatus(404).send({ message: 'activation was failed' });
 
     return;
   }
@@ -75,21 +84,35 @@ export const login = async(
 ) => {
   const { email, password } = req.body;
 
+  const errors = {
+    email: '',
+    password: '',
+  };
+
   const user = await getByEmail(email);
 
   if (!user) {
-    throw ApiError.BadRequest('User with email does not exist', {
-      email: 'User with email does not exist',
-    });
+    // throw ApiError.BadRequest('User with email does not exist', {
+    //   email: 'User with email does not exist',
+    // });
+    errors.email = 'User with email does not exist';
+    res.send(errors);
+
+    return;
   }
 
   try {
     const isPasswordValid = await bcrypt.compare(password, user.password);
 
     if (!isPasswordValid) {
-      throw ApiError.BadRequest('Password is wrong', {
-        password: 'Password is wrong',
-      });
+      // throw ApiError.BadRequest('Password is wrong', {
+      //   password: 'Password is wrong',
+      // });
+
+      errors.password = 'Password is wrong';
+      res.send(errors);
+
+      return;
     }
 
     const accessToken = generateAccessToken(user);
