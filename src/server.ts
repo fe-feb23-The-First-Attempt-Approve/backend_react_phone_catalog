@@ -14,7 +14,9 @@ const server = express();
 
 dbinit();
 
-server.use(cors());
+server.use(cors({
+  credentials: true,
+}));
 server.use(express.json());
 server.use('/phones', phonesRouter);
 server.use('/tablets', tabletsRouter);

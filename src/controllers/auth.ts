@@ -7,6 +7,7 @@ import 'dotenv/config';
 import { generateAccessToken } from '../services/jwtService';
 
 import bcrypt from 'bcrypt';
+import { ApiError } from '../exceptions/ApiError';
 
 const validatePassword = (password: string) => {
   if (!password) {
@@ -48,7 +49,10 @@ export const register = async(
 
   try {
     await registerUser({ userName, email, password });
-  } catch {
+  } catch (e) {
+    // eslint-disable-next-line no-console
+    console.log(e);
+
     errors.email = 'Email is already taken';
     res.send(errors);
 
@@ -76,6 +80,8 @@ export const activate = async(
   user.activationToken = null;
   await user.save();
 
+  res.redirect(`${process.env.CLIENT_URL}`);
+
   res.send(user);
 };
 
@@ -87,15 +93,23 @@ export const login = async(
   const errors = {
     email: '',
     password: '',
+    activationToken: '',
   };
 
   const user = await getByEmail(email);
 
   if (!user) {
-    // throw ApiError.BadRequest('User with email does not exist', {
-    //   email: 'User with email does not exist',
-    // });
     errors.email = 'User with email does not exist';
+    res.send(errors);
+
+    throw ApiError.BadRequest('User with email does not exist', {
+      email: 'User with email does not exist',
+    });
+  }
+
+  if (user.activationToken) {
+    errors.activationToken = 'You should activate your account';
+
     res.send(errors);
 
     return;
@@ -105,14 +119,12 @@ export const login = async(
     const isPasswordValid = await bcrypt.compare(password, user.password);
 
     if (!isPasswordValid) {
-      // throw ApiError.BadRequest('Password is wrong', {
-      //   password: 'Password is wrong',
-      // });
-
       errors.password = 'Password is wrong';
       res.send(errors);
 
-      return;
+      throw ApiError.BadRequest('Password is wrong', {
+        password: 'Password is wrong',
+      });
     }
 
     const accessToken = generateAccessToken(user);

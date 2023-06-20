@@ -15,7 +15,9 @@ const errorMiddleware_1 = require("./middlewares/errorMiddleware");
 const PORT = 4000;
 const server = (0, express_1.default)();
 (0, dbinit_1.dbinit)();
-server.use((0, cors_1.default)());
+server.use((0, cors_1.default)({
+    credentials: true,
+}));
 server.use(express_1.default.json());
 server.use('/phones', phones_1.router);
 server.use('/tablets', tablets_1.router);
