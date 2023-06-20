@@ -81,6 +81,7 @@ export const activate = async(
   await user.save();
 
   res.redirect(`https://fe-feb23-the-first-attempt-approve.github.io/react_phone-catalog/#/`);
+
   res.send(user);
 };
 
