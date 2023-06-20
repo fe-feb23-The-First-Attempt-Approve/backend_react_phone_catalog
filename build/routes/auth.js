@@ -7,6 +7,7 @@ exports.router = void 0;
 const express_1 = __importDefault(require("express"));
 const auth_1 = require("../controllers/auth");
 const catchError_1 = require("../utils/catchError");
+require("dotenv/config");
 exports.router = express_1.default.Router();
 exports.router.post('/registration', (0, catchError_1.catchError)(auth_1.register));
 exports.router.get(`/activation/:activationToken`, (0, catchError_1.catchError)(auth_1.activate));
