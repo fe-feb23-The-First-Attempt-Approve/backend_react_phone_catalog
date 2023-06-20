@@ -80,7 +80,7 @@ export const activate = async(
   user.activationToken = null;
   await user.save();
 
-  res.redirect(`https://fe-feb23-the-first-attempt-approve.github.io/react_phone-catalog/#/`);
+  res.redirect(`${process.env.CLIENT_URL}`);
 
   res.send(user);
 };
