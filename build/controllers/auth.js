@@ -18,6 +18,7 @@ const userService_1 = require("../services/userService");
 require("dotenv/config");
 const jwtService_1 = require("../services/jwtService");
 const bcrypt_1 = __importDefault(require("bcrypt"));
+const ApiError_1 = require("../exceptions/ApiError");
 const validatePassword = (password) => {
     if (!password) {
         return 'Password is required';
@@ -48,7 +49,9 @@ const register = (req, res, next) => __awaiter(void 0, void 0, void 0, function*
     try {
         yield (0, userService_1.registerUser)({ userName, email, password });
     }
-    catch (_a) {
+    catch (e) {
+        // eslint-disable-next-line no-console
+        console.log(e);
         errors.email = 'Email is already taken';
         res.send(errors);
         return;
@@ -67,6 +70,7 @@ const activate = (req, res, next) => __awaiter(void 0, void 0, void 0, function*
     }
     user.activationToken = null;
     yield user.save();
+    res.redirect(`${process.env.CLIENT_URL}`);
     res.send(user);
 });
 exports.activate = activate;
@@ -75,25 +79,29 @@ const login = (req, res, next) => __awaiter(void 0, void 0, void 0, function* ()
     const errors = {
         email: '',
         password: '',
+        activationToken: '',
     };
     const user = yield (0, userService_1.getByEmail)(email);
     if (!user) {
-        // throw ApiError.BadRequest('User with email does not exist', {
-        //   email: 'User with email does not exist',
-        // });
         errors.email = 'User with email does not exist';
+        res.send(errors);
+        throw ApiError_1.ApiError.BadRequest('User with email does not exist', {
+            email: 'User with email does not exist',
+        });
+    }
+    if (user.activationToken) {
+        errors.activationToken = 'You should activate your account';
         res.send(errors);
         return;
     }
     try {
         const isPasswordValid = yield bcrypt_1.default.compare(password, user.password);
         if (!isPasswordValid) {
-            // throw ApiError.BadRequest('Password is wrong', {
-            //   password: 'Password is wrong',
-            // });
             errors.password = 'Password is wrong';
             res.send(errors);
-            return;
+            throw ApiError_1.ApiError.BadRequest('Password is wrong', {
+                password: 'Password is wrong',
+            });
         }
         const accessToken = (0, jwtService_1.generateAccessToken)(user);
         res.send({

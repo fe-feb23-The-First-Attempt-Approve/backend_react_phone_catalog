@@ -23,7 +23,7 @@ export const send = ({ email, subject, html }: Message) => {
 };
 
 export const sendActivationLink = (email: string, token: string) => {
-  const link = `http://localhost:4000/activation/${token}`;
+  const link = `${process.env.CLIENT_URL}/activation/${token}`;
 
   return send({
     email,

@@ -67,9 +67,6 @@ export const activate = async(
 ) => {
   const { activationToken } = req.params;
 
-  // eslint-disable-next-line no-console
-  console.log(activationToken);
-
   const user = await User.findOne({
     where: { activationToken },
   });
@@ -83,7 +80,7 @@ export const activate = async(
   user.activationToken = null;
   await user.save();
 
-  res.redirect('http://localhost:3000/#/');
+  res.redirect(`${process.env.CLIENT_URL}`);
 
   res.send(user);
 };
