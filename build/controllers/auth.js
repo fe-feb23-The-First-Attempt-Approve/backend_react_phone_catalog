@@ -71,7 +71,6 @@ const activate = (req, res, next) => __awaiter(void 0, void 0, void 0, function*
     user.activationToken = null;
     yield user.save();
     res.redirect(`https://fe-feb23-the-first-attempt-approve.github.io/react_phone-catalog/#/`);
-    res.send(user);
 });
 exports.activate = activate;
 const login = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
