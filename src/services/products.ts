@@ -26,8 +26,8 @@ export const findAllByCategory = (productCategory: string) => {
 };
 
 export const findMinMaxPrices = async(category: string) => {
-  const phones = await findAllByCategory(category);
-  const prices = phones.map(item => item.price);
+  const phoneDevices = await findAllByCategory(category);
+  const prices = phoneDevices.map(phone => phone.price);
 
   const min = Math.min(...prices);
   const max = Math.max(...prices);
